@@ -7,9 +7,9 @@
         </h2>
 
         <!-- Stat Cards -->
-        <div class="flex flex-row gap-14">
+        <div class="flex flex-row gap-10">
             <div class=" bg-white rounded-lg shadow-md">
-                <div class="flex items-center p-4">
+                <a href="/produk" class="flex items-center p-4 w-[220px]">
                     <div class="p-3 mr-3 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-200">
                         <svg class="h-8 w-8 text-red-700" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -24,10 +24,10 @@
                         <p class="text-sm font-medium text-black">Total barang</p>
                         <p class="text-lg font-semibold text-black">50</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class=" bg-white rounded-lg shadow-md">
-                <div class="flex items-center p-4">
+                <a href="/produk" class="flex items-center p-4 w-[220px]">
                     <div class="p-3 mr-4 bg-purple-100 rounded-full dark:text-purple-100 dark:bg-purple-200">
                         <svg class="h-8 w-8 text-purple-700" width="24" height="24" viewBox="0 0 24 24"
                             stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -45,10 +45,10 @@
                         <p class="text-sm font-medium text-black">Stok Barang</p>
                         <p class="text-lg font-semibold text-black">1000</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class=" bg-white rounded-lg shadow-md ">
-                <div class="flex items-center p-4">
+                <a href="/akun" class="flex items-center p-4 w-[220px]">
                     <div class="p-3 mr-4 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-200">
                         <svg class="h-8 w-8 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -62,10 +62,10 @@
                         <p class="text-sm font-medium text-black">Pelanggan</p>
                         <p class="text-lg font-semibold text-black">200</p>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="bg-white rounded-lg shadow-md">
-                <div class="flex items-center p-4">
+                <a href="/pendapatan" class="flex items-center p-4 w-[220px]">
                     <div class="p-3 mr-4 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-200">
                         <svg class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -76,7 +76,7 @@
                         <p class="text-sm font-medium text-black">Uang Masuk</p>
                         <p class="text-lg font-semibold text-black">10.000.000</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 

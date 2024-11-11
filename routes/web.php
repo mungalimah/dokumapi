@@ -1,7 +1,32 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PelangganController;
+use App\Models\Pelanggan;
+use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+//route login
+Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'authenticate']);
+Route::get('/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'process']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+Route::get('/reset', [AuthController::class, 'reset']);
 
+// route dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+
+//route barang
+Route::resource('/produk', ProdukController::class)->middleware('auth');
+
+//route Pelanggan
+Route::resource('/akun', PelangganController::class)->middleware('auth');
+
+
+/*
 Route::get('/', function () {
     return view('dashboard.dashboard');
 });
@@ -25,3 +50,40 @@ Route::get('/delete', function () {
 Route::get('/view', function () {
     return view('produk.view');
 });
+
+Route::get('/pendapatan', function () {
+    return view('pendapatan.pendapatan');
+});
+
+Route::get('/akun', function () {
+    return view('customer.akunPelanggan');
+});
+
+Route::get('/pesanan', function () {
+    return view('pesanan.pesanan');
+});
+
+Route::get('/hapus', function () {
+    return view('pesanan.pesanan');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/logout', function () {
+    return view('auth.login');
+});
+
+Route::get('/reset', function () {
+    return view('auth.resetPW');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
+Route::get('/remove', function () {
+    return view('customer.akunPelanggan');
+});
+*/

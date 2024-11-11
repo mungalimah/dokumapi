@@ -1,10 +1,11 @@
 @extends('template.main')
-@section('title', 'produk')
+
 @section('content')
     <div class="container mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-black">
-            CRUD Produk
+            Pendapatan Masuk
         </h2>
+
         <div class="grid grid-cols-2">
             <div class="relative col-start-1">
                 <input type="email"
@@ -22,8 +23,7 @@
             </div>
 
             <div class="col-end-7 mr-4 mb-2">
-                @csrf
-                <a href="/produk/create"
+                <a href="/add"
                     class="flex items-center bg-blue-500 hover:bg-blue-500 font-medium rounded-lg text-sm px-6 py-2.5 dark:bg-green-700 dark:hover:bg-green-700 dark:focus:bg-green-900">
                     <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -40,81 +40,67 @@
         <div class="w-full overflow-x-auto">
             <table class="w-full whitespace-no-wrap">
                 <thead>
-                    <tr class="text-xs font-semibold tracking-wide text-left text-black uppercase border-b-2 dark:border-gray-300 bg-red-400 dark:text-white dark:bg-grey-500">
+                    <tr
+                        class="text-xs font-semibold tracking-wide text-left text-black uppercase border-b-2 dark:border-gray-300 bg-yellow-200 dark:text-white dark:bg-grey-500">
                         <th class="px-4 py-3">No</th>
-                        <th class="px-4 py-3">Gambar</th>
-                        <th class="px-4 py-3">Nama Produk</th>
-                        <th class="px-4 py-3">Kategori Produk</th>
-                        <th class="px-4 py-3">Deskripsi</th>
-                        <th class="px-4 py-3">Stok</th>
-                        <th class="px-4 py-3">Harga</th>
+                        <th class="px-4 py-3">Nama</th>
+                        <th class="px-4 py-3">Email</th>
+                        <th class="px-4 py-3">No HP</th>
+                        <th class="px-4 py-3">Kab/kota</th>
+                        <th class="px-4 py-3">Alamat</th>
+                        <th class="px-4 py-3">Kode Pos</th>
+                        <th class="px-4 py-3">Status</th>
                         <th class="px-4 py-3">Action</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:bg-white">
-                    @foreach ($produk as $data)
                     <tr class="text-gray-700 dark:text-black">
-                        <td class="px-4 py-3 text-base">{{ $loop->iteration }}</td>
                         <td class="px-4 py-3 text-base">
-                            <div class="relative hidden mr-3 rounded-full md:block">
-                                <img class="object-cover h-20 w-100" src="/images/produk/{{ $data->image }}" alt="Gambar Produk" loading="lazy" />
-                                <div class="absolute inset-0 rounded-sm shadow-inner" aria-hidden="true"></div>
-                            </div>
+                            1
                         </td>
-                        <td class="px-4 py-3 text-base">{{ $data->name }}</td>
-                        <td class="px-4 py-3 text-base">{{ $data->category }}</td>
-                        <td class="px-4 py-3 text-base">{{ $data->description }}</td>
-                        <td class="px-4 py-3 text-base">{{ $data->stock }}</td>
-                        <td class="px-4 py-3 text-base">Rp. {{ number_format($data->price, 0) }}</td>
+                        <td class="px-4 py-3 text-base">
+                            Nanang Ardiansyah
+                        </td>
+                        <td class="px-4 py-3 text-base">
+                            example@gmail.com
+                        </td>
+                        <td class="px-4 py-3 text-base">
+                            08123456789
+                        </td>
+                        <td class="px-4 py-3 text-base">
+                            Sragen
+                        </td>
+                        <td class="px-4 py-3 text-base">
+                            Sragen bagian perbatasan
+                        </td>
+                        <td class="px-4 py-3 text-base">
+                            572
+                        </td>
+                        <td class="px-4 py-3 text-xs">
+                            <span
+                                class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
+                                Proses
+                            </span>
+                        </td>
                         <td class="px-4 py-3">
                             <div class="flex items-center text-sm">
-                                <!-- Tombol Edit -->
-                                <a href="{{ route('produk.edit', $data->id_produk) }}"
-                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-blue-800 focus:outline-none focus:shadow-outline-gray"
-                                    aria-label="Edit">
-                                    <svg class="w-5 h-5 text-blue-700" aria-hidden="true" fill="currentColor"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z">
-                                        </path>
-                                    </svg>
-                                </a>
-                                <!-- Tombol View -->
-                                <a href="{{ route('produk.show', $data->id_produk) }}"
-                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-red-800 focus:outline-none focus:shadow-outline-gray"
-                                    aria-label="View">
-                                    <svg class="h-5 w-5 text-purple-700" width="24" height="24" viewBox="0 0 24 24"
-                                        stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                <a href="/hapus"
+                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5  rounded-lg dark:text-red-800 focus:outline-none focus:shadow-outline-gray"
+                                    aria-label="Edit" onclick="return confirmDelete()">
+                                    <svg class="h-5 w-5 text-red-500" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <circle cx="12" cy="12" r="2" />
-                                        <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />
-                                        <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" />
+                                        <polyline points="3 6 5 6 21 6" />
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                        <line x1="10" y1="11" x2="10" y2="17" />
+                                        <line x1="14" y1="11" x2="14" y2="17" />
                                     </svg>
                                 </a>
-                                <!-- Tombol Delete -->
-                                <form action="{{ route('produk.destroy', $data->id_produk) }}" method="POST" onsubmit="return confirmDelete()">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="flex items-center justify-between px-2 mt-3 py-2 text-sm font-medium leading-5 rounded-lg dark:text-red-800 focus:outline-none focus:shadow-outline-gray"
-                                        aria-label="Delete">
-                                        <svg class="h-5 w-5 text-red-500" viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <polyline points="3 6 5 6 21 6" />
-                                            <path
-                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                        </svg>
-                                    </button>
-                                </form>
                             </div>
                         </td>
                     </tr>
-                    @endforeach
-                </tbody>                
+                </tbody>
             </table>
         </div>
         <div
@@ -128,8 +114,7 @@
                 <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                         <li>
-                            <button
-                                class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
+                            <button class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
                                 aria-label="Previous">
                                 <svg aria-hidden="true" class="w-4 h-4 fill-current" viewBox="0 0 20 20">
                                     <path
@@ -152,8 +137,7 @@
                             </button>
                         </li>
                         <li>
-                            <button
-                                class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
+                            <button class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
                                 aria-label="Next">
                                 <svg class="w-4 h-4 fill-current" aria-hidden="true" viewBox="0 0 20 20">
                                     <path
@@ -174,3 +158,4 @@
         return confirm("Apakah kamu yakin ingin menghapus produk? jika dihapus maka produk tidak bisa dikembalikan lagi");
     }
 </script>
+

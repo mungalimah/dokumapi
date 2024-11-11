@@ -8,7 +8,7 @@
                 <table class="w-full whitespace-no-wrap">
                     <thead>
                         <tr
-                            class="text-sm font-semibold tracking-wide text-left text-black uppercase border-b-2 dark:border-gray-300 bg-gray-500 dark:text-white dark:bg-grey-500">
+                            class="text-xs font-semibold tracking-wide text-left text-black uppercase border-b-2 dark:border-gray-300 bg-purple-400 dark:text-white dark:bg-grey-500">
                             <th class="px-4 py-3">Nama</th>
                             <th class="px-4 py-3">Tanggal</th>
                             <th class="px-4 py-3">Pesanan</th>

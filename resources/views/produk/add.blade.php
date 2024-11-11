@@ -6,7 +6,8 @@
             Tambah Produk
         </h2>
 
-        <form class="mr-4">
+        <form class="mr-4 needs-validation" novalidate action="/produk" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Produk</label>
@@ -16,13 +17,13 @@
                 </div>
                 <div class="w-full">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                    <select id="category"
+                    <select id="category" name="category"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option selected="">Kategori Produk</option>
-                        <option value="RK">Roti Kering</option>
-                        <option value="CC">Chiffon Cake</option>
-                        <option value="RKr">Roti Kerumpul</option>
-                        <option value="Br">Brownies</option>
+                        <option value="Roti Kering">Roti Kering</option>
+                        <option value="Chiffon Cake">Chiffon Cake</option>
+                        <option value="Roti Kerumpul">Roti Kerumpul</option>
+                        <option value="Roti Kerumpul">Brownies</option>
                     </select>
                 </div>
                 <div class="w-full">
@@ -33,7 +34,7 @@
                 </div>
                 <div>
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Stok</label>
-                    <input type="number" name="price" id="price"
+                    <input type="number" name="stock" id="stock"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="100" required="">
                 </div>
@@ -42,13 +43,13 @@
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Gambar</label>
                     <input
                         class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                        id="file_input" type="file">
+                        id="image" name="image" type="file" >
 
                 </div>
                 <div class="sm:col-span-2">
                     <label
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi Produk</label>
-                    <textarea id="description" rows="8"
+                    <textarea id="description" name ="description" rows="8"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Masukkan Keterangan Produk"></textarea>
                 </div>
