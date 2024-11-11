@@ -112,7 +112,7 @@ class ProdukController extends Controller
             // Upload gambar baru
             $image = $request->file('image');
             $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
+            $image->move(public_path('images/produk'), $imageName);
             $validated['image'] = $imageName;
         } else {
             // Tetap gunakan gambar lama jika tidak ada gambar baru
@@ -153,4 +153,5 @@ class ProdukController extends Controller
             return redirect('/produk');
         }
     }
+
 }
