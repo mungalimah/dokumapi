@@ -23,7 +23,7 @@
                         <option value="Roti Kering">Roti Kering</option>
                         <option value="Chiffon Cake">Chiffon Cake</option>
                         <option value="Roti Kerumpul">Roti Kerumpul</option>
-                        <option value="Roti Kerumpul">Brownies</option>
+                        <option value="Brownies">Brownies</option>
                     </select>
                 </div>
                 <div class="w-full">
