@@ -35,13 +35,14 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:100|unique:produk',
+            'name' => 'required|max:100|unique:produk,name', // Cek unik di tabel produk
             'category' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'required',
             'price' => 'required',
             'note' => 'max:1000',
         ]);
+
         $input = $request->all();
 
         if ($image = $request->file('image')) {
@@ -50,7 +51,6 @@ class ProdukController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-
 
         Produk::create($input);
 
