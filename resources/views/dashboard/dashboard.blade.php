@@ -61,7 +61,7 @@
                     </div>
                     <div class="whitespace-nowrap">
                         <p class="text-sm font-medium text-black">Pelanggan</p>
-                        <p class="text-lg font-semibold text-black">200</p>
+                        <p class="text-lg font-semibold text-black">{{ $jumlahPelanggan }}</p>
                     </div>
                 </a>
             </div>

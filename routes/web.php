@@ -7,6 +7,7 @@ use App\Http\Controllers\PelangganController;
 use App\Models\Pelanggan;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+
 //route login
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
@@ -25,6 +26,9 @@ Route::resource('/produk', ProdukController::class)->middleware('auth');
 //route Pelanggan
 Route::resource('/akun', PelangganController::class)->middleware('auth');
 
+Route::get('/kategori', function () {
+    return view('kategori.kategori');
+});
 
 /*
 Route::get('/', function () {
