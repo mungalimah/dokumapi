@@ -27,6 +27,9 @@ Route::resource('/produk', ProdukController::class)->middleware('auth');
 //route Pelanggan
 Route::resource('/akun', PelangganController::class)->middleware('auth');
 
+Route::get('/kategori', function () {
+    return view('kategori.kategori');
+});
 
 Route::resource('/kategori', KategoriController::class)->middleware('auth');
 
