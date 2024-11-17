@@ -22,8 +22,9 @@
                     </div>
                     <div class="whitespace-nowrap">
                         <p class="text-sm font-medium text-black">Total barang</p>
-                        <p class="text-lg font-semibold text-black">50</p>
+                        <p class="text-lg font-semibold text-black">{{ $jumlahBarang }}</p> <!-- Total stok produk -->
                     </div>
+
                 </a>
             </div>
             <div class=" bg-white rounded-lg shadow-md">
@@ -43,7 +44,7 @@
                     </div>
                     <div class="whitespace-nowrap">
                         <p class="text-sm font-medium text-black">Stok Barang</p>
-                        <p class="text-lg font-semibold text-black">1000</p>
+                        <p class="text-lg font-semibold text-black">{{ $totalStok }}</p>
                     </div>
                 </a>
             </div>
@@ -60,7 +61,7 @@
                     </div>
                     <div class="whitespace-nowrap">
                         <p class="text-sm font-medium text-black">Pelanggan</p>
-                        <p class="text-lg font-semibold text-black">200</p>
+                        <p class="text-lg font-semibold text-black">{{ $jumlahPelanggan }}</p>
                     </div>
                 </a>
             </div>

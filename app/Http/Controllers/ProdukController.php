@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Exception;
@@ -26,7 +27,10 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('produk.add');
+        $kategori = Kategori::orderBy('name', 'asc')->get();
+        return view('produk.add', [
+            'kategori' => $kategori,
+        ]);
     }
 
     /**
@@ -35,13 +39,14 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:100|unique:produk',
+            'name' => 'required|max:100|unique:produk,name', // Cek unik di tabel produk
             'category' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'required',
             'price' => 'required',
             'note' => 'max:1000',
         ]);
+
         $input = $request->all();
 
         if ($image = $request->file('image')) {
@@ -50,7 +55,6 @@ class ProdukController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-
 
         Produk::create($input);
 
@@ -76,9 +80,11 @@ class ProdukController extends Controller
     public function edit($id_produk)
     {
         $produk = produk::findOrFail($id_produk);
+        $kategori = Kategori::orderBy('name', 'asc')->get();
 
         return view('produk.edit', [
             'produk' => $produk,
+            'kategori' => $kategori,
         ]);
     }
 
@@ -153,4 +159,5 @@ class ProdukController extends Controller
             return redirect('/produk');
         }
     }
+
 }

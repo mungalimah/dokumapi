@@ -23,10 +23,10 @@
 
 <body>
     
-    <div class="flex h-screen w-full">
+    <div class="flex h-screen w-full ">
         <!-- Sidebar -->
-        <div class="md:flex flex-col w-64 bg-white">
-            <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="md:flex flex-col w-64 bg-white mr-3">
+            <div class="flex flex-col flex-1 overflow-y-auto scrollbar-hide">
                 <nav class="flex flex-col flex-1 overflow-y-auto px-2 py-2 gap-10">
                     <a class="ml-6 text-3xl font-bold" href="#">
                         <span class="text-orange-500 text-4xl">S</span><span class="text-gray-800">lice</span><span
@@ -50,6 +50,15 @@
                                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                             </svg>
                             <span class="ml-2">Product</span>
+                        </a>
+                        <a href="/kategori"
+                            class="flex items-center px-4 py-2 mt-2 {{ request()->is('kategori*') ? 'bg-red-600 text-white' : 'text-black hover:bg-gray-400 hover:bg-opacity-25' }} rounded-2xl">
+                            <svg class="h-5 w-5 {{ request()->is('kategori*') ? 'text-white' : 'text-black-500' }}"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                            </svg>
+                            <span class="ml-2">Kategori</span>
                         </a>
                         <a href="/akun"
                             class="flex items-center px-4 py-2 mt-2 {{ request()->is('akun*') ? 'bg-blue-600 text-white' : 'text-black hover:bg-gray-400 hover:bg-opacity-25' }} rounded-2xl">
@@ -131,8 +140,8 @@
                     </a>
 
                     <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown"
-                        data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer"
-                        src="../images/FOTOKU.jpg" alt="User dropdown">
+                        data-dropdown-placement="bottom-start" class="object-cover mt-2 w-10 h-10 rounded-full cursor-pointer"
+                        src="{{ asset('../../images/FOTOKU.jpg') }}" alt="User dropdown">
 
                     <div id="userDropdown"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
