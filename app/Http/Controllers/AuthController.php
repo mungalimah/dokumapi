@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -29,8 +29,8 @@ class AuthController extends Controller
             // Regenerate session to prevent session fixation
             $request->session()->regenerate();
 
-            // Store user ID in the session
-            $request->session()->put('user_id', Auth::id());
+            // Store admin ID in the session
+            $request->session()->put('admin_id', Auth::id());
 
             Alert::success('Success', 'Login success !');
             return redirect()->intended('/dashboard');
@@ -53,17 +53,17 @@ class AuthController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:admin',
             'password' => 'required',
             'confirm-password' => 'required|same:password'
         ]);
 
         $validated['password'] = Hash::make($request['password']);
 
-        $user = User::create($validated);
+        $admin = Admin::create($validated);
         Auth::logout();
 
-        Alert::success('Success', 'Register user has been successfully !');
+        Alert::success('Success', 'Register admin has been successfully !');
         return redirect('/login');
     }
 

@@ -47,12 +47,15 @@ class KategoriController extends Controller
      */
     public function edit($id_kategori)
     {
-        $kategori = kategori::findOrFail($id_kategori);
-
+        $kategori = kategori::all();
+        $kategoriEdit = kategori::findOrFail($id_kategori);
+    
         return view('kategori', [
             'kategori' => $kategori,
+            'kategoriEdit' => $kategoriEdit,
         ]);
     }
+    
 
     /**
      * Update the specified resource in storage.

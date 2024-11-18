@@ -58,7 +58,7 @@
                         </td>
                         <td class="px-4 py-3">
                             <div class="flex items-center text-sm">
-                                <a onclick="toggleEdit({{ $data->id_kategori }})"
+                                <a onclick="toggleEdit({{ $data->id_kategori }}, '{{ $data->name }}')"
                                     class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-red-800 focus:outline-none focus:shadow-outline-gray"
                                     aria-label="Edit">
                                     <svg class="w-5 h-5 text-blue-700" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -67,22 +67,10 @@
                                         </path>
                                     </svg>
                                 </a>
-                                <a href="{{ route('kategori.destroy', $data ->id_kategori) }}"
-                                    class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg dark:text-red-800 focus:outline-none focus:shadow-outline-gray"
-                                    aria-label="Delete" onclick="return confirmDelete()">
-                                    <svg class="h-5 w-5 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="3 6 5 6 21 6" />
-                                        <path
-                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                        <line x1="10" y1="11" x2="10" y2="17" />
-                                        <line x1="14" y1="11" x2="14" y2="17" />
-                                    </svg>
-                                </a>
                             </div>
                         </td>
                     </tr>
-                    @endforeach
+                @endforeach                
                 </tbody>                
             </table>
         </div>
@@ -129,22 +117,22 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <form class="mt-5" action="{{ route('kategori.update', $data->id_kategori) }}" method="POST">
+                <form id="editForm" class="mt-5" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="sm:col-span-2">
                             <label class="block mb-2 text-sm font-medium text-gray-900">Nama kategori</label>
                             <input type="text" name="name" id="editName"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                                placeholder="Masukkan Nama Kategori" required="">
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                                   placeholder="Masukkan Nama Kategori" required>
                         </div>
                     </div>
                     <button type="submit"
-                        class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Update</button>
+                           class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Update</button>
                 </form>
             </div>
-        </div>
+         </div>
     </div>
 @endsection
 
@@ -156,10 +144,24 @@
         }
     }
 
-    function toggleEdit() {
-        const editOverlay = document.getElementById('editOverlay');
-        if (editOverlay) {
-            editOverlay.classList.toggle('hidden');
+    function toggleEdit(id_kategori = null, name = '') {
+        const overlay = document.getElementById("editOverlay");
+        const editForm = document.getElementById("editForm");
+        const editNameInput = document.getElementById("editName");
+
+        if (id_kategori) {
+            // Set action form dynamically with id_kategori
+            editForm.action = "/kategori/update/" + id_kategori;
+            // Set the input value with the current name
+            editNameInput.value = name;
+            // Show the overlay
+            overlay.classList.remove("hidden");
+        } else {
+            // Hide the overlay
+            overlay.classList.add("hidden");
+            // Reset the form action and input value
+            editForm.action = "";
+            editNameInput.value = "";
         }
     }
 
