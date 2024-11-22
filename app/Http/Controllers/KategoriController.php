@@ -77,12 +77,7 @@ class KategoriController extends Controller
         return redirect('/kategori');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id_kategori)
-    {
+    public function show($id_kategori){
         try {
             $deletedkategori = Kategori::findOrFail($id_kategori);
     
@@ -94,5 +89,13 @@ class KategoriController extends Controller
             Alert::warning('Error', 'Cant deleted, Kategori already used !');
             return redirect('/kategori');
         }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id_kategori)
+    {
+
     }
 }
