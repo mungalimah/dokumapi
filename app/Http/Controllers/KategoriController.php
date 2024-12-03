@@ -98,4 +98,16 @@ class KategoriController extends Controller
     {
 
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('query');
+
+        // Mencari berdasarkan kolom 'name' yang berisi nama kategori
+        $kategori = Kategori::where('name', 'LIKE', "%{$keyword}%")
+            ->get();
+
+        return response()->json($kategori);
+    }
+
 }

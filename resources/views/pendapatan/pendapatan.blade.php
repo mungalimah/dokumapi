@@ -2,204 +2,37 @@
 
 @section('content')
     <div class="container mx-auto grid">
-        <h2 class="my-6 text-2xl font-semibold text-black">
-            Pendapatan Masuk
-        </h2>
-        <div class="flex flex-row">
-            <div class="flex flex-col max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
-                <div class="flex justify-between">
-                    <div>
-                        <h5 class="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">20 orang</h5>
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Pembeli Minggu Ini</p>
-                    </div>
-                    <div
-                        class="flex items-center px-2.5 py-0.5 text-base font-semibold text-green-500 dark:text-green-500 text-center">
-                        12%
-                        <svg class="w-3 h-3 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 10 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 13V1m0 0L1 5m4-4 4 4" />
-                        </svg>
-                    </div>
-                </div>
-                <div id="area-chart"></div>
-                <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-                    <div class="flex justify-between items-center pt-5">
-                        <!-- Button -->
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
-                            data-dropdown-placement="bottom"
-                            class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white"
-                            type="button">
-                            Last 7 days
-                            <svg class="w-2.5 m-2.5 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m1 1 4 4 4-4" />
-                            </svg>
-                        </button>
-                        <!-- Dropdown menu -->
-                        <div id="lastDaysdropdown"
-                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                aria-labelledby="dropdownDefaultButton">
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                        7 days</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                        30 days</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                        90 days</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="#"
-                            class="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2">
-                            Laporan Pembeli
-                            <svg class="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m1 9 4-4-4-4" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-row ml-16">
-                <div class="mb-8 mr-4 overflow-hidden rounded-lg shadow-xs">
-                    <div class="w-full overflow-x-auto">
-                        <table class="w-[600px] whitespace-no-wrap">
-                            <thead>
-                                <tr
-                                    class="text-xs font-semibold tracking-wide text-left text-black uppercase border-b-2 dark:border-gray-300 bg-purple-400 dark:text-white dark:bg-grey-500">
-                                    <th class="px-4 py-3">No</th>
-                                    <th class="px-10 py-3">Nama</th>
-                                    <th class="px-4 py-3">Total</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y dark:bg-white">
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        1
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        2
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        3
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        4
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        5
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        6
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                                <tr class="text-gray-700 dark:text-black">
-                                    <td class="px-4 py-3 text-base">
-                                        7
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Nanang Ardiansyah
-                                    </td>
-                                    <td class="px-4 py-3 text-base">
-                                        Rp300.000
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+    <h2 class="my-6 text-2xl font-semibold text-black">
+        Pendapatan Masuk
+    </h2>
+    <div class="flex flex-col w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+        <div class="flex justify-between">
+            <h5 class="text-lg font-semibold text-gray-800 dark:text-white">Pendapatan</h5>
+            <select id="time-interval" class="border rounded px-3 py-1">
+                <option value="1d">1 Hari</option>
+                <option value="7d" selected>1 Minggu</option>
+                <option value="1m">1 Bulan</option>
+            </select>
         </div>
-
+        <div id="area-chart" class="w-full"></div>
     </div>
+</div>
+
 @endsection
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const options = {
+    document.addEventListener('DOMContentLoaded', function () {
+        const chartOptions = {
             chart: {
-                height: "250px",
-                maxWidth: "100%",
+                height: "300px",
+                Width: "100%",
                 type: "area",
                 fontFamily: "Inter, sans-serif",
-                dropShadow: {
-                    enabled: false
-                },
-                toolbar: {
-                    show: false
-                },
+                toolbar: { show: false },
             },
             tooltip: {
                 enabled: true,
-                x: {
-                    show: false
-                },
+                x: { show: false },
             },
             fill: {
                 type: "gradient",
@@ -210,48 +43,52 @@
                     gradientToColors: ["#1C64F2"],
                 },
             },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                width: 6
-            },
-            grid: {
-                show: false,
-                strokeDashArray: 4,
-                padding: {
-                    left: 2,
-                    right: 2,
-                    top: 0
-                }
-            },
-            series: [{
-                name: "Pelanggan Minggu Ini",
-                data: [3, 4, 3, 3, 4, 2],
-                color: "#1A56DB"
-            }],
+            dataLabels: { enabled: false },
+            stroke: { width: 6 },
+            grid: { show: false },
+            series: [],
             xaxis: {
-                categories: ['01 February', '02 February', '03 February', '04 February', '05 February',
-                    '06 February', '07 February'
-                ],
-                labels: {
-                    show: false
-                },
-                axisBorder: {
-                    show: false
-                },
-                axisTicks: {
-                    show: false
-                },
+                categories: [],
+                labels: { show: true },
+                axisBorder: { show: false },
+                axisTicks: { show: false },
             },
-            yaxis: {
-                show: false
+            yaxis: { show: true },
+        };
+
+        const dataSets = {
+            "1d": { 
+                series: [{ name: "Pendapatan", data: [500, 450, 480, 520, 490] }], 
+                categories: ['08:00', '10:00', '12:00', '14:00', '16:00'] 
+            },
+            "7d": { 
+                series: [{ name: "Pendapatan", data: [3500, 4000, 3800, 4200, 3900, 4500, 4100] }], 
+                categories: ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] 
+            },
+            "1m": { 
+                series: [{ name: "Pendapatan", data: [15000, 14000, 15500, 16000, 14500] }], 
+                categories: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4', 'Minggu 5'] 
             },
         };
 
-        if (document.getElementById("area-chart")) {
-            const chart = new ApexCharts(document.getElementById("area-chart"), options);
-            chart.render();
+        const chartElement = document.getElementById("area-chart");
+        let chart = new ApexCharts(chartElement, chartOptions);
+
+        function updateChart(interval) {
+            const data = dataSets[interval];
+            chart.updateOptions({
+                series: data.series,
+                xaxis: { categories: data.categories }
+            });
         }
+
+        // Initial render
+        chart.render();
+        updateChart("7d");
+
+        // Update chart on interval change
+        document.getElementById("time-interval").addEventListener("change", function (e) {
+            updateChart(e.target.value);
+        });
     });
 </script>

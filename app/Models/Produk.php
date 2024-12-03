@@ -9,11 +9,11 @@ class Produk extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_produk';
+    protected $primaryKey = 'id';
 
     protected $table = 'produk';
 
-    protected $guarded = ['id_produk'];
+    protected $guarded = ['id'];
     protected $fillable = [
         'name',
         'category',

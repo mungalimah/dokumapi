@@ -23,15 +23,26 @@ Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
 //route barang
 Route::resource('/produk', ProdukController::class)->middleware('auth');
+Route::get('/produk/search', [ProdukController::class, 'search'])->name('produk.search');
+
 
 //route Pelanggan
 Route::resource('/akun', PelangganController::class)->middleware('auth');
 
-Route::get('/kategori', function () {
-    return view('kategori.kategori');
+Route::resource('/kategori', KategoriController::class)->middleware('auth');
+Route::get('/kategori/search', [ProdukController::class, 'search'])->name('kategori.search');
+
+Route::get('/pendapatan', function () {
+    return view('pendapatan.pendapatan');
 });
 
-Route::resource('/kategori', KategoriController::class)->middleware('auth');
+Route::get('/pesanan', function () {
+    return view('pesanan.pesanan');
+});
+
+Route::get('/showPelanggan', function () {
+    return view('customer.showPelanggan');
+});
 
 /*
 Route::get('/kategori', function () {
@@ -63,17 +74,12 @@ Route::get('/view', function () {
     return view('produk.view');
 });
 
-Route::get('/pendapatan', function () {
-    return view('pendapatan.pendapatan');
-});
+
 
 Route::get('/akun', function () {
     return view('customer.akunPelanggan');
 });
 
-Route::get('/pesanan', function () {
-    return view('pesanan.pesanan');
-});
 
 Route::get('/hapus', function () {
     return view('pesanan.pesanan');

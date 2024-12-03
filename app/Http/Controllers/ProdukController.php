@@ -68,7 +68,7 @@ class ProdukController extends Controller
     public function show(Produk $produk)
     {
         // Mencari produk berdasarkan ID
-        $produk = Produk::find($produk->id_produk);
+        $produk = Produk::find($produk->id);
 
         // Menampilkan view dan mengirim data produk
         return view('produk.view', compact('produk'));
@@ -159,5 +159,17 @@ class ProdukController extends Controller
             return redirect('/produk');
         }
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('query');
+        $produk = Produk::where('name', 'LIKE', "%{$keyword}%")
+            ->orWhere('category', 'LIKE', "%{$keyword}%")
+            ->get();
+
+        return response()->json($produk);
+    }
+
+
 
 }

@@ -17,11 +17,11 @@ class Pelanggan extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $primaryKey = 'id_pelanggan';
+    protected $primaryKey = 'id';
 
     protected $table = 'pelanggan';
 
-    protected $guarded = ['id_pelanggan'];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
