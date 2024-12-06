@@ -190,7 +190,7 @@
             const rows = document.querySelectorAll('tbody tr');
 
             rows.forEach(function(row) {
-                const nameCell = row.querySelector('td:nth-child(3)');
+                const nameCell = row.querySelector('td:nth-child(2)');
                 const name = nameCell ? nameCell.textContent.toLowerCase() : '';
 
                 if (name.includes(query)) {
