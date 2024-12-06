@@ -3,7 +3,7 @@
 @section('content')
     <div class="container mx-auto grid">
         <h2 class="my-6 text-2xl font-semibold text-black">
-            Pendapatan Masuk
+            Pemesanan Masuk
         </h2>
 
         <div class="grid grid-cols-2">
@@ -20,17 +20,6 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-            </div>
-
-            <div class="col-end-7 mr-4 mb-2">
-                <a href="/add"
-                    class="flex items-center bg-blue-500 hover:bg-blue-500 font-medium rounded-lg text-sm px-6 py-2.5 dark:bg-green-700 dark:hover:bg-green-700 dark:focus:bg-green-900">
-                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="ml-2 text-sm text-white">Tambah Barang</span>
-                </a>
             </div>
         </div>
 

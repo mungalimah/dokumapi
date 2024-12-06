@@ -6,7 +6,7 @@
             Edit Produk
         </h2>
 
-        <form class="mr-4 needs-validation" novalidate action="/produk/{{ $produk->id_produk }}" method="POST" enctype="multipart/form-data">
+        <form class="mr-4 needs-validation" novalidate action="/produk/{{ $produk->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
