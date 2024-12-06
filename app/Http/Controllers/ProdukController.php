@@ -44,7 +44,7 @@ class ProdukController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'required',
             'price' => 'required',
-            'note' => 'max:1000',
+            'description' => 'max:1000',
         ]);
 
         $input = $request->all();
@@ -77,9 +77,9 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id_produk)
+    public function edit($id)
     {
-        $produk = produk::findOrFail($id_produk);
+        $produk = produk::findOrFail($id);
         $kategori = Kategori::orderBy('name', 'asc')->get();
 
         return view('produk.edit', [
@@ -91,18 +91,18 @@ class ProdukController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id_produk)
+    public function update(Request $request, $id)
     {
-        $produk = Produk::findOrFail($id_produk);
+        $produk = Produk::findOrFail($id);
 
         // Validasi data, buat gambar opsional (nullable)
         $validated = $request->validate([
-            'name' => 'required|max:100|unique:produk,name,' . $id_produk . ',id_produk',
+            'name' => 'required|max:100|unique:produk,name,' . $id . ',id',
             'category' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',  // Nullable, agar gambar opsional
             'stock' => 'required',
             'price' => 'required',
-            'note' => 'max:1000',
+            'description' => 'max:1000',
         ]);
 
         // Cek jika ada file gambar baru
@@ -137,10 +137,10 @@ class ProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id_produk)
+    public function destroy($id)
     {
         try {
-            $deletedproduk = Produk::findOrFail($id_produk);
+            $deletedproduk = Produk::findOrFail($id);
     
             // Hapus file gambar jika ada
             if ($deletedproduk->image) {

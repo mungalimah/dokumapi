@@ -30,6 +30,7 @@ Route::get('/produk/search', [ProdukController::class, 'search'])->name('produk.
 Route::resource('/akun', PelangganController::class)->middleware('auth');
 
 Route::resource('/kategori', KategoriController::class)->middleware('auth');
+Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 Route::get('/kategori/search', [ProdukController::class, 'search'])->name('kategori.search');
 
 Route::get('/pendapatan', function () {

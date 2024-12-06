@@ -45,10 +45,10 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id_kategori)
+    public function edit($id)
     {
         $kategori = kategori::all();
-        $kategoriEdit = kategori::findOrFail($id_kategori);
+        $kategoriEdit = kategori::findOrFail($id);
     
         return view('kategori', [
             'kategori' => $kategori,
@@ -60,13 +60,13 @@ class KategoriController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id_kategori)
+    public function update(Request $request, $id)
     {
-        $kategori = Kategori::findOrFail($id_kategori);
+        $kategori = Kategori::findOrFail($id);
 
         // Validasi data, buat gambar opsional (nullable)
         $validated = $request->validate([
-            'name' => 'required|max:100|unique:kategori,name,' . $id_kategori . ',id_kategori',
+            'name' => 'required|max:100|unique:kategori,name,' . $id . ',id',
         ]);
 
         // Update data kategori
@@ -77,9 +77,9 @@ class KategoriController extends Controller
         return redirect('/kategori');
     }
 
-    public function show($id_kategori){
+    public function show($id){
         try {
-            $deletedkategori = Kategori::findOrFail($id_kategori);
+            $deletedkategori = Kategori::findOrFail($id);
     
             $deletedkategori->delete();
     
@@ -94,7 +94,7 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id_kategori)
+    public function destroy($id)
     {
 
     }

@@ -158,25 +158,25 @@
     }
 
     function toggleEdit(id = null, name = '') {
-        const overlay = document.getElementById("editOverlay");
-        const editForm = document.getElementById("editForm");
-        const editNameInput = document.getElementById("editName");
+    const overlay = document.getElementById("editOverlay");
+    const editForm = document.getElementById("editForm");
+    const editNameInput = document.getElementById("editName");
 
-        if (id) {
-            // Set action form dynamically with id
-            editForm.action = "/kategori/update/" + id;
-            // Set the input value with the current name
-            editNameInput.value = name;
-            // Show the overlay
-            overlay.classList.remove("hidden");
-        } else {
-            // Hide the overlay
-            overlay.classList.add("hidden");
-            // Reset the form action and input value
-            editForm.action = "";
-            editNameInput.value = "";
-        }
+    if (id) {
+        // Update the form action to use the correct route
+        editForm.action = `/kategori/${id}`;
+        // Set the input value with the current name
+        editNameInput.value = name;
+        // Show the overlay
+        overlay.classList.remove("hidden");
+    } else {
+        // Hide the overlay
+        overlay.classList.add("hidden");
+        // Reset the form action and input value
+        editForm.action = "";
+        editNameInput.value = "";
     }
+}
 
     function confirmDelete() {
         return confirm(
