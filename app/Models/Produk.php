@@ -9,11 +9,8 @@ class Produk extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_produk';
-
     protected $table = 'produk';
 
-    protected $guarded = ['id_produk'];
     protected $fillable = [
         'name',
         'category',
@@ -22,4 +19,9 @@ class Produk extends Model
         'price',
         'description'
     ];
+
+    public function DetailPesanan()
+    {
+        return $this->hasMany(DetailPesanan::class);
+    }
 }

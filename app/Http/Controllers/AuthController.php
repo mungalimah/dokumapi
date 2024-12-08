@@ -71,10 +71,18 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        Alert::success('Success', 'Log out success !');
-        return redirect('/login');
+        // Invalidate session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Flash success alert
+        Alert::success('Success', 'Log out success!');
+
+        return redirect('/login')->withHeaders([
+            'Cache-Control' => 'no-cache, no-store, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => '0',
+        ]);
     }
     public function reset(){
         return view('auth.reset', [

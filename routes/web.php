@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PendapatanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\KategoriController;
 use App\Models\Pelanggan;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PesananController;
 
 //route login
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
@@ -23,15 +25,20 @@ Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
 //route barang
 Route::resource('/produk', ProdukController::class)->middleware('auth');
+Route::get('/produk/search', [ProdukController::class, 'search'])->name('produk.search');
+
 
 //route Pelanggan
 Route::resource('/akun', PelangganController::class)->middleware('auth');
 
-Route::get('/kategori', function () {
-    return view('kategori.kategori');
-});
-
 Route::resource('/kategori', KategoriController::class)->middleware('auth');
+Route::put('/kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+Route::get('/kategori/search', [ProdukController::class, 'search'])->name('kategori.search');
+
+Route::get('/pendapatan', [PendapatanController::class, 'index']);
+
+
+Route::get('/showPelanggan/{id}', [PesananController::class,'show'] );
 
 /*
 Route::get('/kategori', function () {
@@ -63,17 +70,12 @@ Route::get('/view', function () {
     return view('produk.view');
 });
 
-Route::get('/pendapatan', function () {
-    return view('pendapatan.pendapatan');
-});
+
 
 Route::get('/akun', function () {
     return view('customer.akunPelanggan');
 });
 
-Route::get('/pesanan', function () {
-    return view('pesanan.pesanan');
-});
 
 Route::get('/hapus', function () {
     return view('pesanan.pesanan');

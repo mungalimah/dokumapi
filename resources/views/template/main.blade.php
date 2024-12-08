@@ -27,7 +27,7 @@
         <!-- Sidebar -->
         <div class="md:flex flex-col w-64 bg-white mr-3">
             <div class="flex flex-col flex-1 overflow-y-auto scrollbar-hide">
-                <nav class="flex flex-col flex-1 overflow-y-auto px-2 py-2 gap-10">
+                <nav class="flex flex-col flex-1 overflow-y-auto fixed px-2 py-2 gap-10">
                     <a class="ml-6 text-3xl font-bold" href="#">
                         <span class="text-orange-500 text-4xl">S</span><span class="text-gray-800">lice</span><span
                             class="text-orange-500 text-4xl">B</span><span class="text-gray-800">akery</span>
@@ -82,17 +82,7 @@
                             </svg>
                             <span class="ml-2">Pendapatan</span>
                         </a>
-                        <a href="/pesanan"
-                            class="flex items-center px-4 py-2 mt-2 mb-2 {{ request()->is('pesanan*') ? 'bg-yellow-400 text-white' : 'text-black hover:bg-gray-400 hover:bg-opacity-25' }} rounded-2xl">
-                            <svg class="h-5 w-5 {{ request()->is('pesanan*') ? 'text-white' : 'text-black-500' }}"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                                <line x1="3" y1="6" x2="21" y2="6" />
-                                <path d="M16 10a4 4 0 0 1-8 0" />
-                            </svg>
-                            <span class="ml-2">Pemesanan</span>
-                        </a>
+                        
                         <span class="border-b"></span>
                         <a href=""
                             class="flex items-center px-4 py-2 mt-2 text-black hover:bg-gray-400 hover:bg-opacity-25 rounded-2xl">

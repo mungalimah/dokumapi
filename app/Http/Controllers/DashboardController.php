@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use App\Models\Pelanggan;
+use App\Models\Pesanan;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 
 class DashboardController extends Controller
 {
@@ -19,10 +23,25 @@ class DashboardController extends Controller
         // Jumlah pelanggan
         $jumlahPelanggan = Pelanggan::count();
 
+        $currentMonth = Carbon::now()->month; // Mengambil bulan saat ini
+        $currentYear = Carbon::now()->year;   // Mengambil tahun saat ini
+        
+        $jumlahPesanan = Pesanan::where('status', 'success')
+            ->whereMonth('updated_at', $currentMonth)
+            ->whereYear('updated_at', $currentYear)
+            ->sum('total_harga');
+        
+        $pesanan = Pesanan::where('status', 'success')
+        ->orderBy('id', 'asc')
+        ->get();
+        
+        
         return view('dashboard.dashboard', [
             'jumlahBarang' => $jumlahBarang,
             'totalStok' => $totalStok,
             'jumlahPelanggan' => $jumlahPelanggan,
+            'jumlahPesanan' => $jumlahPesanan,
+            'pesanan' => $pesanan,
         ]);
     }
 
