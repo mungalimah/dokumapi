@@ -27,6 +27,8 @@ Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 Route::resource('/produk', ProdukController::class)->middleware('auth');
 Route::get('/produk/search', [ProdukController::class, 'search'])->name('produk.search');
 
+Route::get('/produk/search', [ProdukController::class, 'search'])->name('produk.search');
+
 
 //route Pelanggan
 Route::resource('/akun', PelangganController::class)->middleware('auth');
@@ -69,6 +71,7 @@ Route::get('/delete', function () {
 Route::get('/view', function () {
     return view('produk.view');
 });
+
 
 
 

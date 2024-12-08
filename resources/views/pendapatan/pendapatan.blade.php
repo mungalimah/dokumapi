@@ -15,7 +15,10 @@
             </select>
         </div>
         <div id="area-chart" class="w-full"></div>
+        <div id="area-chart" class="w-full"></div>
     </div>
+</div>
+
 </div>
 
 @endsection
