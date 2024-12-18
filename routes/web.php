@@ -10,6 +10,8 @@ use App\Models\Pelanggan;
 use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PesananController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 //route login
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
@@ -39,8 +41,32 @@ Route::get('/kategori/search', [ProdukController::class, 'search'])->name('kateg
 
 Route::get('/pendapatan', [PendapatanController::class, 'index']);
 
-
 Route::get('/showPelanggan/{id}', [PesananController::class,'show'] );
+
+Route::get('/storage/images/produk/{filename}', function ($filename) {
+    $path = storage_path('app/public/images/produk/' . $filename);
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    } else {
+        abort(404);
+    }
+});
+
+Route::get('/api', function () {
+    return view('api.api');
+});
+
+Route::get('/swagger.yaml', function () {
+    $path = resource_path('views/api/swagger.yaml');
+    if (!file_exists($path)) {
+        abort(404);
+    }
+    return Response::file($path, [
+        'Content-Type' => 'application/x-yaml',
+    ]);
+});
+
 
 /*
 Route::get('/kategori', function () {
