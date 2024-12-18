@@ -15,9 +15,13 @@ class ProductController extends Controller
     public function index()
     {
         $produk = Produk::orderBy('name', 'asc')->get();
+<<<<<<< HEAD
         foreach ($produk as $item) {
             $item->image = url('images/produk/' . $item->image);
         }
+=======
+        $produk = Produk::all();
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
         return response()->json([
             'status' => true,
             'message' => 'Data produk berhasil ditemukan.',
@@ -57,7 +61,10 @@ class ProductController extends Controller
         }
 
         $produk = Produk::create($input);
+<<<<<<< HEAD
         $produk->image = url('images/produk/' . $produk->image);
+=======
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
 
         return response()->json([
             'status' => true,
@@ -80,8 +87,11 @@ class ProductController extends Controller
             ], 404);
         }
 
+<<<<<<< HEAD
         $produk->image = url('images/produk/' . $produk->image);
 
+=======
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
         return response()->json([
             'status' => true,
             'message' => 'Produk berhasil ditemukan.',
@@ -104,11 +114,19 @@ class ProductController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'name' => 'nullable|max:100|unique:produk,name',
             'category' => 'nullable',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
             'stock' => 'nullable|integer',
             'price' => 'nullable|numeric',
+=======
+            'name' => 'required|max:100|unique:produk,name,' . $id . ',id',
+            'category' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'stock' => 'required|integer',
+            'price' => 'required|numeric',
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
             'description' => 'nullable|max:1000',
         ]);
 
@@ -120,7 +138,11 @@ class ProductController extends Controller
             ], 422);
         }
 
+<<<<<<< HEAD
         $produk->update($request->all());
+=======
+        $input = $request->all();
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
 
         if ($request->hasFile('image')) {
             // Hapus gambar lama
@@ -141,7 +163,10 @@ class ProductController extends Controller
         }
 
         $produk->update($input);
+<<<<<<< HEAD
         $produk->image = url('images/produk/' . $produk->image);
+=======
+>>>>>>> e67268756bbfd4ac8828c146056841b34bf3991a
 
         return response()->json([
             'status' => true,
